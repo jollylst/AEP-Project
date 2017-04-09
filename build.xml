@@ -9,6 +9,12 @@
     <pathelement path="jh61b.jar"/>
   </path>
 
+  <path id="src.classpath">
+    <pathelement path="target/classes"/>
+    <pathelement path="lib/algs4.jar"/>
+    <pathelement path="jh61b.jar"/>
+  </path>
+
   <target name="init">
     <mkdir dir="target/classes"/>
     <mkdir dir="target/test-classes"/>
@@ -21,6 +27,7 @@
 
   <target name="compile" depends="init">
     <javac destdir="target/classes" target="1.8" source="1.8" debug="true" includeantruntime="false">
+      <classpath refid="src.classpath" />
       <src path="src/main" />
     </javac>
   </target>

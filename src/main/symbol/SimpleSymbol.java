@@ -1,5 +1,6 @@
 package symbol;
 
+import edu.princeton.cs.algs4.StdRandom;
 /**
  * Created by Jolly on 4/9/17.
  */
@@ -21,6 +22,13 @@ public class SimpleSymbol {
         red = r;
         green = g;
         blue = b;
+    }
+
+    public static SimpleSymbol randomSimpleSymbol() {
+        int red = StdRandom.uniform(0, 51) * 5;
+        int green = StdRandom.uniform(0, 51) * 5;
+        int blue = StdRandom.uniform(0, 51) * 5;
+        return new SimpleSymbol(red, green, blue);
     }
 
     @Override
@@ -48,4 +56,5 @@ public class SimpleSymbol {
             return red / 5  * 256 * 256 + green / 5 * 256 + blue / 5;
         }
     }
+
 }

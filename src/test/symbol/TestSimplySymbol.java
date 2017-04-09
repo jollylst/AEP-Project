@@ -73,4 +73,13 @@ public class TestSimplySymbol {
         }
         assertEquals(8, hashSet.size());
     }
+
+    @Test
+    public void testHashCodeDeterministic() {
+        SimpleSymbol ss = SimpleSymbol.randomSimpleSymbol();
+        int hashCode = ss.hashCode();
+        for (int i = 0; i < 100; i += 1) {
+            assertEquals(hashCode, ss.hashCode());
+        }
+    }
 }
