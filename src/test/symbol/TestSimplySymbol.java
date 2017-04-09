@@ -2,6 +2,8 @@ package symbol;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.HashSet;
+
 /**
  * Created by Jolly on 4/9/17.
  */
@@ -27,6 +29,13 @@ public class TestSimplySymbol {
         assertNotEquals(ssA, "ketchup");
     }
 
-
+    @Test
+    public void testHashCodeAndEqualsConsistency() {
+        SimpleSymbol ssA = new SimpleSymbol(5, 10, 20);
+        SimpleSymbol ssB = new SimpleSymbol(5, 10, 20);
+        HashSet<SimpleSymbol> hashSet = new HashSet<>();
+        hashSet.add(ssA);
+        assertTrue(hashSet.contains(ssB));
+    }
 
 }

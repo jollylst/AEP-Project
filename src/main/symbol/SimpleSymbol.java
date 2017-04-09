@@ -38,4 +38,13 @@ public class SimpleSymbol {
         SimpleSymbol that = (SimpleSymbol) o;
         return (this.red == that.red) && (this.green == that.green) && (this.blue == that.blue);
     }
+
+    @Override
+    public int hashCode() {
+        if (!USE_PERFECT_HASH) {
+            return red + green + blue;
+        } else {
+            return 0;
+        }
+    }
 }
