@@ -52,4 +52,25 @@ public class TestSimplySymbol {
         }
         assertEquals(5, hashSet.size());
     }
+
+    @Test
+    public void testHashCodePerfect() {
+        /** Write a test that ensures the hashCode is perfect,
+         meaning no two SimpleSymbol should EVER have the same hashCode!
+         */
+        SimpleSymbol[] ssA = new SimpleSymbol[8];
+        ssA[0] = new SimpleSymbol(10, 20, 50);
+        ssA[1] = new SimpleSymbol(20, 50, 10);
+        ssA[2] = new SimpleSymbol(50, 15, 15);
+        ssA[3] = new SimpleSymbol(40, 20, 20);
+        ssA[4] = new SimpleSymbol(30, 25, 25);
+        ssA[5] = new SimpleSymbol(15, 25, 40);
+        ssA[6] = new SimpleSymbol(5, 60, 15);
+        ssA[7] = new SimpleSymbol(70, 5, 5);
+        HashSet<Integer> hashSet = new HashSet<>();
+        for (int i = 0; i < 8; i++) {
+            hashSet.add(ssA[i].hashCode());
+        }
+        assertEquals(8, hashSet.size());
+    }
 }

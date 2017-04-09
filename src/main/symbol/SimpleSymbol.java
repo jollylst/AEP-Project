@@ -9,7 +9,7 @@ public class SimpleSymbol {
     protected int blue;
 
     private static final double WIDTH = 0.01;
-    private static final boolean USE_PERFECT_HASH = false;
+    private static final boolean USE_PERFECT_HASH = true;
 
     public SimpleSymbol(int r, int g, int b) {
         if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
@@ -44,7 +44,8 @@ public class SimpleSymbol {
         if (!USE_PERFECT_HASH) {
             return red + green + blue;
         } else {
-            return 0;
+            // to-do: Write a perfect hash function for SimpleSymbol.
+            return red / 5  * 256 * 256 + green / 5 * 256 + blue / 5;
         }
     }
 }
