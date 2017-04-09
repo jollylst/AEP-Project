@@ -14,7 +14,7 @@ public class TestSimplySymbol {
         assertEquals(ooA, ooA2);
         assertNotEquals(ooA, ooB);
         assertNotEquals(ooA2, ooB);
-        assertEquals(ooA, "ketchup");
+        assertNotEquals(ooA, "ketchup");
     }
 
 }
