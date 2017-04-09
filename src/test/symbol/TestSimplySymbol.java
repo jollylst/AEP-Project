@@ -11,4 +11,9 @@ public class TestSimplySymbol {
         SimpleSymbol ooA = new SimpleSymbol(5, 10, 265);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void colorValueNotMultiplesOfFiveShouldNotBeCreatable() {
+        SimpleSymbol ooA = new SimpleSymbol(10, 22, 125);
+    }
+
 }
