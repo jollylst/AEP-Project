@@ -1,10 +1,15 @@
 package symbol;
 
+import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdRandom;
+
+import java.awt.*;
+
+
 /**
  * Created by Jolly on 4/9/17.
  */
-public class SimpleSymbol {
+public class SimpleSymbol implements Symbol {
     protected int red;
     protected int green;
     protected int blue;
@@ -32,6 +37,12 @@ public class SimpleSymbol {
     }
 
     @Override
+    public void draw(double x, double y, double scalingFactor) {
+        StdDraw.setPenColor(new Color(red, green, blue));
+        StdDraw.filledSquare(x, y, WIDTH * scalingFactor);
+    }
+
+    @Override
     public boolean equals(Object o) {
         // to-do: Write this method.
         if (o == this) {
@@ -53,8 +64,20 @@ public class SimpleSymbol {
             return red + green + blue;
         } else {
             // to-do: Write a perfect hash function for SimpleSymbol.
-            return red / 5  * 256 * 256 + green / 5 * 256 + blue / 5;
+            return red / 5 * 256 * 256 + green / 5 * 256 + blue / 5;
         }
+    }
+
+    public String toString() {
+        return "R: " + red + ", G: " + green + ", B: " + blue;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Drawing 4 random simple Oomages.");
+        randomSimpleSymbol().draw(0.25, 0.25, 1);
+        randomSimpleSymbol().draw(0.75, 0.75, 1);
+        randomSimpleSymbol().draw(0.25, 0.75, 1);
+        randomSimpleSymbol().draw(0.75, 0.25, 1);
     }
 
 }

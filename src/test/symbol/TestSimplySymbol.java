@@ -2,12 +2,16 @@ package symbol;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * Created by Jolly on 4/9/17.
  */
 public class TestSimplySymbol {
+
     @Test(expected = IllegalArgumentException.class)
     public void colorValueBeyondLimitShouldNotBeCreatable() {
         SimpleSymbol ooA = new SimpleSymbol(5, 10, 265);
@@ -81,5 +85,17 @@ public class TestSimplySymbol {
         for (int i = 0; i < 100; i += 1) {
             assertEquals(hashCode, ss.hashCode());
         }
+    }
+
+    @Test
+    public void testRandomSymbolsHashCodeSpread() {
+        List<SimpleSymbol> symbols = new ArrayList<>();
+        int N = 10000;
+
+        for (int i = 0; i < N; i += 1) {
+            symbols.add(SimpleSymbol.randomSimpleSymbol());
+        }
+
+        assertTrue(SymbolTestUtility.haveNiceHashCodeSpread(symbols, 10));
     }
 }
