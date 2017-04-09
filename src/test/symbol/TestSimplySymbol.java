@@ -16,4 +16,17 @@ public class TestSimplySymbol {
         SimpleSymbol ooA = new SimpleSymbol(10, 22, 125);
     }
 
+    @Test
+    public void testEquals() {
+        SimpleSymbol ssA = new SimpleSymbol(5, 10, 20);
+        SimpleSymbol ssA2 = new SimpleSymbol(5, 10, 20);
+        SimpleSymbol ssB = new SimpleSymbol(50, 50, 50);
+        assertEquals(ssA, ssA2);
+        assertNotEquals(ssA, ssB);
+        assertNotEquals(ssA2, ssB);
+        assertNotEquals(ssA, "ketchup");
+    }
+
+
+
 }
