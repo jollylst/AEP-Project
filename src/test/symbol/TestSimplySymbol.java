@@ -89,7 +89,7 @@ public class TestSimplySymbol {
 
     @Test
     public void testRandomSymbolsHashCodeSpread() {
-        List<SimpleSymbol> symbols = new ArrayList<>();
+        List<Symbol> symbols = new ArrayList<>();
         int N = 10000;
 
         for (int i = 0; i < N; i += 1) {

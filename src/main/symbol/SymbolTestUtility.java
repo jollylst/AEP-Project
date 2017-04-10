@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Jolly on 4/9/17.
  */
 public class SymbolTestUtility {
-    public static boolean haveNiceHashCodeSpread(List<SimpleSymbol> symbols, int M) {
+    public static boolean haveNiceHashCodeSpread(List<Symbol> symbols, int M) {
         /* to-do: Write a utility function that returns true if the given symbols
          * have hashCodes that would distribute them fairly evenly across
          * M buckets. To do this, convert each SimpleSymbol's hashcode in the
@@ -16,7 +16,7 @@ public class SymbolTestUtility {
          */
         int bucketNum;
         int[] bucketPos = new int[M];
-        for (SimpleSymbol s : symbols) {
+        for (Symbol s : symbols) {
             bucketNum = (s.hashCode() & 0x7FFFFFFF) % M;
             bucketPos[bucketNum]++;
         }
